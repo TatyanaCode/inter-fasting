@@ -1,5 +1,6 @@
 package com.intermittent.fasting.start.models;
 
+import jakarta.persistence.*;
 import org.apache.commons.lang3.time.DateUtils;
 
 import java.util.Date;
@@ -7,8 +8,14 @@ import java.util.Date;
 /**
  * author danilova.tatyana 06.01.2023
  */
+@Entity
+@Table(name = "hunger")
 public class Hunger {
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private long id;
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "user_id")
     private User user;
     private HungerType hungerType;
     private Date dateStart;
@@ -107,5 +114,16 @@ public class Hunger {
 
     public void setId(long id) {
         this.id = id;
+    }
+    public boolean isUserStop() {
+        return isUserStop;
+    }
+
+    public void setUserStop(boolean userStop) {
+        isUserStop = userStop;
+    }
+
+    public void setTimeHunger(long timeHunger) {
+        this.timeHunger = timeHunger;
     }
 }

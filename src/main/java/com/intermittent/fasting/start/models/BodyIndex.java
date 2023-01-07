@@ -1,12 +1,20 @@
 package com.intermittent.fasting.start.models;
 
+import jakarta.persistence.*;
+
 import java.util.Date;
 
 /**
  * author danilova.tatyana 06.01.2023
  */
+@Entity
+@Table(name = "body_index")
 public class BodyIndex {
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private long id;
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "user_id")
     private User user;
     private double weight;
     private double height;
