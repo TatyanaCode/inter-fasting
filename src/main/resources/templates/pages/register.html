@@ -6,23 +6,24 @@
 </head>
 <body>
 <div th:fragment="content">
-    <form class="mb-4">
+    <form method="post" th:action="@{/addUser}" class="mb-4">
         <div class="form-outline mb-4">
             <label class="form-label" for="form3Example1cg">Логин</label>
-            <input type="text" id="form3Example1cg" class="form-control" />
+            <input name="userName" type="text" id="form3Example1cg" class="form-control" />
         </div>
         <div class="form-outline mb-4">
             <label class="form-label" for="form3Example3cg">Email</label>
-            <input type="email" id="form3Example3cg" class="form-control" />
+            <input name="email" type="email" id="form3Example3cg" class="form-control" />
         </div>
         <div class="form-outline mb-4">
             <label class="form-label" for="form3Example4cg">Пароль</label>
-            <input type="password" id="form3Example4cg" class="form-control" />
+            <input name="password" type="password" id="form3Example4cg" class="form-control" />
         </div>
         <div class="form-outline mb-4">
             <label class="form-label" for="form3Example4cdg">Повторите пароль</label>
             <input type="password" id="form3Example4cdg" class="form-control" />
         </div>
+        <p class="text-danger" th:text="${errorMessage}"></p>
         <div class="form-check d-flex justify-content-center mb-2">
             <input class="form-check-input me-2" type="checkbox" value="" id="form2Example3cg" checked/>
             <label class="form-check-label" for="form2Example3cg">
@@ -30,7 +31,7 @@
             </label>
         </div>
         <div class="d-flex justify-content-center">
-            <button type="button" class="btn btn-primary btn-block mb-1">Зарегистрироваться</button>
+            <button type="submit" class="btn btn-primary btn-block mb-1">Зарегистрироваться</button>
         </div>
 
     </form>
