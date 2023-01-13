@@ -6,14 +6,15 @@
 </head>
 <body>
 <div th:fragment="login">
-    <form class="mt-4">
+    <form method="post" th:action="@{/signUp}" class="mt-4">
         <div class="form-outline mb-4">
-            <input placeholder="Логин" type="email" class="form-control" id="login"/>
+            <input name="userName" placeholder="Логин" type="text" class="form-control" id="login"/>
         </div>
 
         <div class="form-outline mb-4">
-            <input placeholder="Пароль" type="password" class="form-control" id="password"/>
+            <input name="password" placeholder="Пароль" type="password" class="form-control" id="password"/>
         </div>
+        <p class="text-danger" th:text="${errorMessage}"></p>
 
         <div class="row mb-4">
             <div class="col d-flex justify-content-center">
@@ -29,7 +30,7 @@
         </div>
 
         <div class="row">
-            <button type="button" class="btn btn-primary btn-block mb-1">Войти</button>
+            <button type="submit" class="btn btn-primary btn-block mb-1">Войти</button>
         </div>
         <div class="row">
             <a href="/register" class="btn btn-danger btn-block mb-4">Регистрация</a>
